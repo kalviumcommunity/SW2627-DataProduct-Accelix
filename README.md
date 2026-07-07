@@ -40,6 +40,7 @@ This workspace is set up as a reproducible Python data-project scaffold. It incl
 ## Files In This Workspace
 
 - `development_environment_workspace_setup.ipynb` contains the lesson content for the assignment
+- `notebooks/github_repository_team_workflow_setup.ipynb` contains the GitHub workflow lesson
 - `.gitignore` excludes virtual environments, secrets, caches, and generated artifacts
 - `requirements.txt` pins the project dependencies
 - `.env.example` documents required environment variables without exposing secrets
