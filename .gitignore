@@ -1,0 +1,29 @@
+# Virtual environments
+venv/
+.venv/
+
+# Secrets and local configuration
+.env
+*.key
+*.pem
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS clutter
+.DS_Store
+Thumbs.db
+
+# Generated outputs
+output/*
+!output/.gitkeep
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
