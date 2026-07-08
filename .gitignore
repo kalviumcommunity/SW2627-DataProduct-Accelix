@@ -22,6 +22,7 @@ Thumbs.db
 # Generated outputs
 output/*
 !output/.gitkeep
+!output/sample_run.txt
 
 # Build artifacts
 build/
