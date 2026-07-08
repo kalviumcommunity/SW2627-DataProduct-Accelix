@@ -22,6 +22,7 @@ Thumbs.db
 # Generated outputs
 output/*
 !output/.gitkeep
+!output/intake_report.json
 
 # Build artifacts
 build/
