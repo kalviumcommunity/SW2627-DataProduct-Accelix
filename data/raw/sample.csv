@@ -1,0 +1,12 @@
+customer_id,name,age,amount,transaction_date
+1001,John Doe,34,150.50,2025-01-01
+1002,Jane Smith,28,250.00,2025-01-02
+1003,Bob Johnson,,99.99,2025-01-03
+1004,Alice Brown,42,,2025-01-04
+1001,John Doe,34,150.50,2025-01-01
+1005,Charlie Green,55,300.25,2025-01-05
+1002,Jane Smith,28,250.00,2025-01-02
+1006,David Black,,120.00,2025-01-06
+1007,Eva White,31,,2025-01-07
+1008,Frank Miller,45,85.00,2025-01-08
+1008,Frank Miller,45,85.00,2025-01-08
