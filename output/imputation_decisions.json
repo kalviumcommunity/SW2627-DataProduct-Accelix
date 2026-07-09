@@ -1,0 +1,77 @@
+{
+  "dataset": "data/raw/missing_data.csv",
+  "metrics_before": {
+    "rows": 5,
+    "columns": 5,
+    "total_nulls": 3,
+    "nulls_by_column": {
+      "customer_id": 0,
+      "name": 1,
+      "email": 2,
+      "amount": 0,
+      "category": 0
+    }
+  },
+  "metrics_after": {
+    "rows": 2,
+    "columns": 5,
+    "total_nulls": 0,
+    "nulls_by_column": {
+      "customer_id": 0,
+      "name": 0,
+      "email": 0,
+      "amount": 0,
+      "category": 0
+    }
+  },
+  "decisions": {
+    "customer_id": {
+      "column_type": "critical identifier",
+      "null_count_before": 0,
+      "strategy": "drop_rows",
+      "rows_affected": 0,
+      "business_reasoning": "Customer ID is the primary key for the record. Any row missing it cannot be matched, deduplicated, or trusted in downstream analysis.",
+      "risk_assessment": "Low - dropping protects data integrity"
+    },
+    "name": {
+      "column_type": "customer identity",
+      "null_count_before": 1,
+      "strategy": "drop_rows",
+      "rows_affected": 1,
+      "business_reasoning": "Customer name is needed for human review, account lookup, and support workflows. Filling it artificially would create a misleading customer identity.",
+      "risk_assessment": "Low - incomplete identity records are removed instead of guessed"
+    },
+    "email": {
+      "column_type": "categorical_identifier",
+      "null_count_before": 2,
+      "strategy": "drop_rows",
+      "rows_affected": 2,
+      "business_reasoning": "Email is required for outreach, verification, and retention campaigns. Records without email cannot support customer communication.",
+      "risk_assessment": "Low - only incomplete contact records are removed"
+    },
+    "amount": {
+      "column_type": "numerical",
+      "null_count_before": 0,
+      "strategy": "median_imputation",
+      "value_used": 200.0,
+      "business_reasoning": "Median purchase amount represents the typical transaction without being skewed by high-value outliers.",
+      "risk_assessment": "Low - median is stable and resistant to skew"
+    },
+    "category": {
+      "column_type": "categorical",
+      "null_count_before": 0,
+      "strategy": "mode_imputation",
+      "value_used": "A",
+      "business_reasoning": "The most common category is a defensible default for a low-cardinality business segment field.",
+      "risk_assessment": "Medium - mode assumes missing records follow the dominant group"
+    },
+    "last_updated": {
+      "column_type": "datetime_series",
+      "null_count_before": 0,
+      "strategy": "forward_fill",
+      "interpretation": "Assumes the last known timestamp remains valid until updated",
+      "business_reasoning": "For time-series feeds, forward fill preserves temporal continuity when later observations inherit the prior state.",
+      "risk_assessment": "Medium - only suitable where values change slowly over time"
+    }
+  }
+}
