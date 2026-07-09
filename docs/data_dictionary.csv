@@ -1,0 +1,10 @@
+column_name,data_type,description,business_meaning,example_value,related_kpi,notes
+customer_id,integer,Unique identifier for a customer record,Primary customer ID used across CRM and analytics,1,Customer count and lifetime value,Primary key; never null
+name,string,Customer full name,Human-readable customer name used by sales and support,Alice Smith,Customer service resolution and account lookup,PII; may repeat across different people
+email,string,Customer email address,Primary contact channel for the customer,alice@example.com,Marketing reach and contactability,PII; validate email format; may be null in source files
+signup_date,datetime,Date the customer was created or signed up,Customer acquisition date used for cohort analysis,2025-01-15,New customer acquisition and retention cohorts,UTC date; should not be in the future
+id,integer,Unique identifier for a transaction row,Transaction or event record identifier used for audit trails,1,Transaction count and auditability,Primary key in the transactions feed
+amount,float,Monetary value recorded on the transaction,Revenue captured from a single transaction,150.99,Monthly revenue and average transaction value,USD; non-negative; investigate nulls or negatives
+status,string,Record or transaction lifecycle state,Operational state of the record used to separate completed and pending activity,completed,Completion rate and operational throughput,Ambiguous across sources; validate allowed values before analysis
+age,integer,Customer age in years,Demographic attribute used for customer profiling,34,Segment analysis and demographic distribution,Optional field; should be a whole number
+transaction_date,datetime,Date the transaction occurred,Timestamp for when the purchase or activity happened,2025-01-01,Sales velocity and revenue trending,Use transaction timezone consistently
