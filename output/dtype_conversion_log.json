@@ -1,0 +1,32 @@
+{
+  "date_columns": {
+    "transaction_date": {
+      "from": "object",
+      "to": "datetime64[ns]",
+      "status": "success",
+      "format": "%Y-%m-%d"
+    },
+    "signup_date": {
+      "from": "object",
+      "to": "datetime64[ns]",
+      "status": "success",
+      "format": "%Y-%m-%d"
+    }
+  },
+  "currency_columns": {
+    "amount": {
+      "from": "object",
+      "to": "float64",
+      "status": "success",
+      "standardization": "stripped currency symbols and commas"
+    }
+  },
+  "boolean_columns": {
+    "is_active": {
+      "from": "int64",
+      "to": "boolean",
+      "status": "success",
+      "standardization": "mapped binary indicator to boolean"
+    }
+  }
+}
