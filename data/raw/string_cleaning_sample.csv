@@ -1,0 +1,8 @@
+product_name,customer_segment,customer_name,location
+ Electronics ,B2B,JOHN,São Paulo
+electronics,b2b,john,Montréal
+ELECTRONICS,B 2 B,John,München
+ Home Audio ,SME,Maria,New York
+home-audio,small medium enterprise,maria , São Paulo 
+Home Audio,business-to-business, MARIA,Montréal
+Accessory Pack,enterprise,,Québec
