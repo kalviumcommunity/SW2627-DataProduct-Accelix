@@ -1,0 +1,47 @@
+{
+  "strip_summary": [
+    {
+      "column": "product_name",
+      "whitespace_values_fixed": 2,
+      "unique_values_before": 7,
+      "unique_values_after": 6
+    },
+    {
+      "column": "customer_segment",
+      "whitespace_values_fixed": 0,
+      "unique_values_before": 7,
+      "unique_values_after": 7
+    },
+    {
+      "column": "customer_name",
+      "whitespace_values_fixed": 2,
+      "unique_values_before": 7,
+      "unique_values_after": 7
+    },
+    {
+      "column": "location",
+      "whitespace_values_fixed": 1,
+      "unique_values_before": 6,
+      "unique_values_after": 5
+    }
+  ],
+  "mapping_used": {
+    "b2b": "B2B",
+    "b 2 b": "B2B",
+    "b2 b": "B2B",
+    "business-to-business": "B2B",
+    "sme": "SMB",
+    "small medium enterprise": "SMB",
+    "small-medium enterprise": "SMB",
+    "enterprise": "Enterprise",
+    "enter prise": "Enterprise",
+    "enterprise customer": "Enterprise"
+  },
+  "regex_pattern": "[^a-zA-Z0-9 ]",
+  "comparison_file": "output\\string_cleaning_comparison.json",
+  "notes": [
+    "Lowercase was chosen as the canonical case for categorical fields.",
+    "Special characters are removed from product and location fields to avoid downstream encoding issues.",
+    "International characters such as São and Montréal are normalized using the configured regex pattern."
+  ]
+}

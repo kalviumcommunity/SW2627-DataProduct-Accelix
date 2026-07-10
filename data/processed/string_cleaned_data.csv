@@ -1,0 +1,8 @@
+product_name,customer_segment,customer_name,location
+electronics,B2B,john,so paulo
+electronics,B2B,john,montral
+electronics,B2B,john,mnchen
+home audio,SMB,maria,new york
+homeaudio,SMB,maria,so paulo
+home audio,B2B,maria,montral
+accessory pack,Enterprise,,qubec

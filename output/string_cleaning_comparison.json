@@ -1,0 +1,12 @@
+{
+  "rows_before": 7,
+  "rows_after": 7,
+  "columns": [
+    "product_name",
+    "customer_segment",
+    "customer_name",
+    "location"
+  ],
+  "nulls_before": 1,
+  "nulls_after": 1
+}
