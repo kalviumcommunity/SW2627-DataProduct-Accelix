@@ -1,0 +1,4 @@
+customer_id,transaction_date,amount,status,_source_row_id
+1,2025-01-15,100,completed,1
+2,2025-01-20,250,pending,3
+2,2025-01-20,260,pending,4
