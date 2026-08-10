@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: accelix-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: accelix_db
+      POSTGRES_USER: accelix_user
+      POSTGRES_PASSWORD: accelix_secure_password_2026
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U accelix_user -d accelix_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  accelix-app:
+    build: .
+    container_name: accelix-streamlit-app
+    restart: always
+    ports:
+      - "8501:8501"
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: accelix_db
+      POSTGRES_USER: accelix_user
+      POSTGRES_PASSWORD: accelix_secure_password_2026
+      LOG_LEVEL: INFO
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
