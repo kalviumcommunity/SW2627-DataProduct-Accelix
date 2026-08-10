@@ -20,7 +20,9 @@ DB_POOL_RECYCLE = int(os.environ.get("DB_POOL_RECYCLE", "1800"))
 # Database URIs
 POSTGRES_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 DEFAULT_POSTGRES_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/postgres"
-SQLITE_FALLBACK_URI = "sqlite:///d:/accelix/accelix_production_fallback.db"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DEFAULT_SQLITE_PATH = os.path.join(BASE_DIR, "accelix_production_fallback.db")
+SQLITE_FALLBACK_URI = os.environ.get("SQLITE_FALLBACK_URI", f"sqlite:///{DEFAULT_SQLITE_PATH.replace('\\', '/')}")
 
 # Analytics & Constraint Boundaries
 ANALYSIS_WINDOW_DAYS = 30  # Strict Day 0 - 30 analysis scope
