@@ -44,5 +44,6 @@ python tests/test_pipeline.py
 
 ### 3. Launch Accelix Dashboard
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
+
 ```
